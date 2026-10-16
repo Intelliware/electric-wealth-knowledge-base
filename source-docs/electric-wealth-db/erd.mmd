@@ -1,0 +1,350 @@
+%% Electric Wealth database — column-level ERD
+%% Source: electric-wealth-db migrations 001–007 @ 05ff1a61e87f62666c0fceb35fc1604c1d7abccd (extracted 2026-10-15)
+%% Edges = declared FOREIGN KEYs (34). Label shows ON DELETE action. ON UPDATE is NO ACTION everywhere.
+erDiagram
+    users {
+        TEXT id PK
+        TEXT email UK "NOCASE"
+        TEXT password
+        TEXT mfa_code
+        TEXT name
+        TEXT account_number
+        TEXT date_of_birth
+        TEXT created_at
+        TEXT advisor_id FK "nullable"
+        TEXT mfa_method
+        TEXT terms_accepted_at "nullable"
+    }
+    user_profiles {
+        TEXT user_id PK,FK
+        TEXT phone_masked
+        TEXT sin_masked "nullable"
+        INTEGER member_since
+        TEXT address_line1
+        TEXT address_line2 "nullable"
+        TEXT city
+        TEXT province
+        TEXT postal_code
+        TEXT country
+        TEXT trusted_contact_name "nullable"
+        TEXT trusted_contact_relationship "nullable"
+    }
+    user_preferences {
+        TEXT user_id PK,FK
+        INTEGER notify_email
+        INTEGER notify_sms
+        INTEGER notify_push
+        TEXT document_delivery
+        TEXT language
+        TEXT theme
+        TEXT default_meeting_type
+    }
+    sessions {
+        TEXT access_token PK
+        TEXT refresh_token UK
+        TEXT user_id FK
+        INTEGER mfa_verified
+        INTEGER revoked
+        TEXT expires_at
+        TEXT created_at
+    }
+    accounts {
+        TEXT user_id PK,FK
+        TEXT id PK
+        TEXT type
+        TEXT display_name
+        TEXT nickname "nullable"
+        INTEGER balance "minor units"
+        TEXT currency
+        INTEGER hidden
+        INTEGER day_change "nullable"
+        REAL day_change_pct "nullable"
+        INTEGER contribution_room "nullable"
+        TEXT tax_status
+        REAL rate_of_return "nullable"
+        INTEGER sort_order
+    }
+    holdings {
+        TEXT user_id PK,FK
+        TEXT account_id PK,FK
+        TEXT symbol PK "no FK"
+        TEXT name
+        REAL quantity
+        INTEGER market_value
+        TEXT currency
+        REAL weight_pct
+    }
+    transactions {
+        TEXT user_id PK,FK
+        TEXT account_id PK,FK
+        TEXT id PK
+        TEXT date
+        TEXT description
+        TEXT detail "nullable"
+        TEXT type
+        INTEGER amount
+        TEXT currency
+        TEXT status
+    }
+    account_performance {
+        TEXT user_id PK,FK
+        TEXT account_id PK,FK
+        REAL time_weighted_return_pct
+        TEXT currency
+        TEXT benchmark_name
+    }
+    performance_points {
+        TEXT user_id PK,FK
+        TEXT account_id PK,FK
+        TEXT series PK
+        TEXT period PK
+        REAL value
+    }
+    documents {
+        TEXT user_id PK,FK
+        TEXT id PK
+        TEXT name
+        TEXT category
+        INTEGER year
+        TEXT account_id "nullable, no FK"
+        TEXT account_label "nullable"
+        INTEGER size_bytes
+        INTEGER action_required
+        TEXT url
+    }
+    document_shares {
+        INTEGER id PK "AUTOINCREMENT"
+        TEXT user_id FK
+        TEXT document_id FK
+        TEXT recipient
+        TEXT created_at
+        TEXT expires_at
+    }
+    goals {
+        TEXT user_id PK,FK
+        TEXT id PK
+        TEXT name
+        TEXT category
+        INTEGER current_amount
+        INTEGER target_amount
+        TEXT currency
+        TEXT target_date
+        REAL progress_pct
+        INTEGER show_on_dashboard
+        INTEGER sort_order
+    }
+    portfolio_snapshots {
+        TEXT user_id PK,FK
+        TEXT currency
+        INTEGER day_change
+        REAL day_change_pct
+        TEXT as_of
+    }
+    asset_allocations {
+        TEXT user_id PK,FK
+        TEXT asset_class PK
+        REAL pct
+        INTEGER sort_order
+    }
+    alerts {
+        TEXT user_id PK,FK
+        TEXT id PK
+        TEXT type
+        TEXT title
+        TEXT deep_link "nullable"
+    }
+    quick_links {
+        TEXT user_id PK,FK
+        INTEGER sort_order PK
+        TEXT label
+        TEXT deep_link
+    }
+    notifications {
+        TEXT user_id PK,FK
+        TEXT id PK
+        TEXT title
+        TEXT body
+        TEXT type
+        TEXT created_at
+        INTEGER read
+    }
+    education_content {
+        TEXT id PK
+        TEXT title_en
+        TEXT title_fr
+        TEXT level
+        TEXT type
+        INTEGER duration_min
+        INTEGER sort_order
+    }
+    education_progress {
+        TEXT user_id PK,FK
+        TEXT content_id PK,FK
+        INTEGER progress_pct
+        TEXT updated_at
+    }
+    glossary_terms {
+        TEXT id PK
+        TEXT term_en
+        TEXT term_fr
+        TEXT definition_en
+        TEXT definition_fr
+        INTEGER sort_order
+    }
+    advisors {
+        TEXT id PK
+        TEXT name
+        TEXT designation "nullable"
+        INTEGER available
+    }
+    appointments {
+        TEXT id PK
+        TEXT user_id FK
+        TEXT advisor_id FK
+        TEXT meeting_type
+        TEXT date "Toronto local"
+        TEXT time "Toronto local"
+        TEXT status
+        TEXT notes "nullable"
+        TEXT created_at
+    }
+    advisor_messages {
+        TEXT id PK
+        TEXT user_id FK
+        TEXT advisor_id FK
+        TEXT sender
+        TEXT text
+        TEXT sent_at
+    }
+    securities {
+        TEXT symbol PK
+        TEXT name
+        TEXT exchange
+        TEXT currency
+        INTEGER price
+        INTEGER change
+        REAL change_pct
+        TEXT about "nullable"
+    }
+    price_history {
+        TEXT symbol PK,FK
+        TEXT range PK
+        TEXT t PK
+        INTEGER close
+    }
+    watchlist {
+        TEXT user_id PK,FK
+        TEXT symbol PK,FK
+        TEXT added_at
+    }
+    market_news {
+        TEXT id PK
+        TEXT title
+        TEXT source
+        TEXT published_at
+        TEXT tag "nullable"
+    }
+    market_roundup_items {
+        TEXT id PK
+        TEXT week_of
+        TEXT title
+        TEXT summary
+        TEXT published_at
+    }
+    baskets {
+        TEXT id PK
+        TEXT name
+        TEXT description
+        REAL return_1y_pct
+        INTEGER holdings_count
+        TEXT risk
+        INTEGER sort_order
+    }
+    offline_clients {
+        TEXT account_number PK
+        TEXT name
+        TEXT date_of_birth
+        TEXT phone_masked
+        TEXT sin_masked "nullable"
+        INTEGER client_since
+        TEXT address_line1
+        TEXT address_line2 "nullable"
+        TEXT city
+        TEXT province
+        TEXT postal_code
+        TEXT country
+        TEXT language
+        TEXT advisor_id FK "nullable"
+        TEXT enrolled_user_id FK "nullable"
+    }
+    security_questions {
+        TEXT id PK
+        TEXT text_en
+        TEXT text_fr
+        INTEGER sort_order
+    }
+    registrations {
+        TEXT id PK
+        TEXT email "NOCASE"
+        TEXT password
+        TEXT account_number FK "nullable"
+        TEXT trusted_contact_name "nullable"
+        TEXT trusted_contact_relationship "nullable"
+        TEXT trusted_contact_phone "nullable"
+        TEXT trusted_contact_email "nullable"
+        INTEGER security_answers_saved
+        TEXT mfa_method "nullable"
+        TEXT consented_at "nullable"
+        TEXT user_id FK "nullable"
+        TEXT created_at
+        TEXT expires_at
+    }
+    registration_security_answers {
+        TEXT registration_id PK,FK
+        TEXT question_id PK,FK
+        TEXT answer
+    }
+    user_security_answers {
+        TEXT user_id PK,FK
+        TEXT question_id PK,FK
+        TEXT answer
+    }
+    schema_migrations {
+        TEXT version PK
+        TEXT applied_at
+    }
+
+    users ||--o| user_profiles : "CASCADE"
+    users ||--o| user_preferences : "CASCADE"
+    users ||--o{ sessions : "CASCADE"
+    users ||--o{ accounts : "CASCADE"
+    accounts ||--o{ holdings : "CASCADE"
+    accounts ||--o{ transactions : "CASCADE"
+    accounts ||--o| account_performance : "CASCADE"
+    accounts ||--o{ performance_points : "CASCADE"
+    users ||--o{ documents : "CASCADE"
+    documents ||--o{ document_shares : "CASCADE"
+    users ||--o{ goals : "CASCADE"
+    users ||--o| portfolio_snapshots : "CASCADE"
+    users ||--o{ asset_allocations : "CASCADE"
+    users ||--o{ alerts : "CASCADE"
+    users ||--o{ quick_links : "CASCADE"
+    users ||--o{ notifications : "CASCADE"
+    users ||--o{ education_progress : "CASCADE"
+    education_content ||--o{ education_progress : "CASCADE"
+    advisors |o--o{ users : "NO ACTION"
+    users ||--o{ appointments : "CASCADE"
+    advisors ||--o{ appointments : "NO ACTION"
+    users ||--o{ advisor_messages : "CASCADE"
+    advisors ||--o{ advisor_messages : "NO ACTION"
+    securities ||--o{ price_history : "CASCADE"
+    users ||--o{ watchlist : "CASCADE"
+    securities ||--o{ watchlist : "CASCADE"
+    advisors |o--o{ offline_clients : "NO ACTION"
+    users |o--o| offline_clients : "NO ACTION (enrolled_user_id)"
+    offline_clients |o--o{ registrations : "NO ACTION"
+    users |o--o{ registrations : "NO ACTION"
+    registrations ||--o{ registration_security_answers : "CASCADE"
+    security_questions ||--o{ registration_security_answers : "NO ACTION"
+    users ||--o{ user_security_answers : "CASCADE"
+    security_questions ||--o{ user_security_answers : "NO ACTION"
