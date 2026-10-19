@@ -16,7 +16,7 @@ paths:
   - "src/features/auth/RegisterPage.tsx"
 depends_on:
   - "api-registration"
-  - "web-auth-session"
+  - "web-sign-in-and-mfa"
   - "web-api-client"
   - "web-design-system"
   - "web-i18n-and-formatting"
@@ -43,7 +43,7 @@ verification_signal: route-inventory-diff
 
 **Routes:** `/register`
 
-**Depends on:** [`api-registration`](../../components/electric-wealth-api-spring/api-registration.md), [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
+**Depends on:** [`api-registration`](../../components/electric-wealth-api-spring/api-registration.md), [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
 
 **Shared entities:** [`Registration`](../../shared/entities/registration.md), [`SecurityQuestion`](../../shared/entities/security-question.md), [`SecurityAnswer`](../../shared/entities/security-answer.md)
 
@@ -72,7 +72,7 @@ verification_signal: route-inventory-diff
 
 **Upstream dependents to notify:** None modelled.
 
-**Downstream services to monitor post-change:** `api-registration`, `web-auth-session`, `web-api-client`, `web-design-system`, `web-i18n-and-formatting`
+**Downstream services to monitor post-change:** `api-registration`, `web-sign-in-and-mfa`, `web-api-client`, `web-design-system`, `web-i18n-and-formatting`
 
 ---
 

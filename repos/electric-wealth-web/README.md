@@ -40,7 +40,7 @@ The browser portal for Electric Wealth retail investors: a client-side React SPA
 | Framework(s) | React 19, react-router 7, TanStack Query 5, i18next | Declarative routes, no data routers |
 | Build / package manager | Vite 8, npm, Node.js ≥ 24 |  |
 | Test stack | None | Static gate only: `npm run verify` (`check:api` + `typecheck`) |
-| Datastore(s) | None (browser memory; tokens in `tokenStore`) |  |
+| Datastore(s) | Browser `sessionStorage` (auth tokens only, via `tokenStore`) |  |
 | Runtime / deploy target | Vite dev server on 5173 proxying `/api` to `API_URL` (default `http://localhost:4200`) | No deployment target defined |
 | Key dependencies (top 5–10) | react, react-router, @tanstack/react-query, openapi-fetch, openapi-typescript, i18next, react-i18next | Hand-written CSS and SVG charts |
 
@@ -53,7 +53,7 @@ Full list: Component Catalog in [`ARCHITECTURE.md`](../../ARCHITECTURE.md#3-comp
 | Component ID | Type | Description (Use-when …) | Doc |
 |---|---|---|---|
 | [`web-api-client`](../../components/electric-wealth-web/web-api-client.md) | `shared-library` | Use when a change touches how the web app calls the API — the openapi-fetch client, generated schema.d.ts types, header middleware, ApiError unwrapping, or the TanStack Query hooks and their cache keys. | [doc](../../components/electric-wealth-web/web-api-client.md) |
-| [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md) | `shared-library` | Use when a change touches the browser-side session — AuthContext phases, token storage, the 10-minute refresh timer, idle sign-out, or the global 401 handling that signs the user out. | [doc](../../components/electric-wealth-web/web-auth-session.md) |
+| [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md) | `ui-feature` | Use when the user signs in on /login with email and password and the MFA code, or a change touches the browser session: the signed-out / MFA / signed-in phases, token storage in sessionStorage, the 10-minute token refresh, the 15-minute idle sign-out, or signing out on a 401. | [doc](../../components/electric-wealth-web/web-sign-in-and-mfa.md) |
 | [`web-app-shell`](../../components/electric-wealth-web/web-app-shell.md) | `ui-feature` | Use when a change touches the signed-in / signed-out route tables, the top navigation and user menu, the 404 page, return-to-origin redirects, or how the SPA boots and proxies /api in development. | [doc](../../components/electric-wealth-web/web-app-shell.md) |
 | [`web-dashboard`](../../components/electric-wealth-web/web-dashboard.md) | `ui-feature` | Use when the signed-in home page (/) shows the portfolio total, day change, action-required alerts, allocation bar, goal progress and quick links — including mapping API deep links to web routes. | [doc](../../components/electric-wealth-web/web-dashboard.md) |
 | [`web-accounts`](../../components/electric-wealth-web/web-accounts.md) | `ui-feature` | Use when the user views the accounts list, an account's detail (performance vs benchmark, holdings, transactions, nickname) or opens a new account at /accounts, /accounts/:id or /accounts/new. | [doc](../../components/electric-wealth-web/web-accounts.md) |
@@ -67,7 +67,7 @@ Full list: Component Catalog in [`ARCHITECTURE.md`](../../ARCHITECTURE.md#3-comp
 
 | Kind | Identifier | Description | Source of Truth |
 |---|---|---|---|
-| `http-endpoint` | SPA route `/login` | Sign-in and MFA Pages (`web-sign-in-and-mfa`) | `src/App.tsx` |
+| `http-endpoint` | SPA route `/login` | Sign-in, MFA and Browser Session (`web-sign-in-and-mfa`) | `src/App.tsx` |
 | `http-endpoint` | SPA route `/register` | Registration Wizard (`web-registration-wizard`) | `src/App.tsx` |
 | `http-endpoint` | SPA route `/` | Dashboard Page (`web-dashboard`) | `src/App.tsx` |
 | `http-endpoint` | SPA route `/accounts` | Accounts Pages (`web-accounts`) | `src/App.tsx` |

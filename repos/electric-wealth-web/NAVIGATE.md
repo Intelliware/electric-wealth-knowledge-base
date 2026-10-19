@@ -12,7 +12,7 @@ Source repo: `../electric-wealth-web` at commit `7489670e43b9b3498218e9a1559254f
 
 ## Components in this repo
 
-- [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md) — Sign-in and MFA Pages
+- [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md) — Sign-in, MFA and Browser Session
 - [`web-registration-wizard`](../../components/electric-wealth-web/web-registration-wizard.md) — Registration Wizard
 - [`web-dashboard`](../../components/electric-wealth-web/web-dashboard.md) — Dashboard Page
 - [`web-accounts`](../../components/electric-wealth-web/web-accounts.md) — Accounts Pages
@@ -25,7 +25,6 @@ Source repo: `../electric-wealth-web` at commit `7489670e43b9b3498218e9a1559254f
 - [`web-profile`](../../components/electric-wealth-web/web-profile.md) — Profile Page
 - [`web-settings`](../../components/electric-wealth-web/web-settings.md) — Settings Page
 - [`web-app-shell`](../../components/electric-wealth-web/web-app-shell.md) — App Shell, Routing and Layout
-- [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md) — Auth Session Context
 - [`web-api-client`](../../components/electric-wealth-web/web-api-client.md) — Typed API Client and Query Hooks
 - [`web-design-system`](../../components/electric-wealth-web/web-design-system.md) — UI Components, Charts and Styles
 - [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md) — Internationalisation and Formatting

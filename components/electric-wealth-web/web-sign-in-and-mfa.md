@@ -3,44 +3,55 @@ component_id: web-sign-in-and-mfa
 repo: web
 type: ui-feature
 description: >-
-  Use when the user signs in on /login with email and password, enters the six-digit MFA code, or sees the idle / expired sign-out notice.
+  Use when the user signs in on /login with email and password and the MFA code, or a change touches the browser session: the signed-out / MFA / signed-in phases, token storage in sessionStorage, the 10-minute token refresh, the 15-minute idle sign-out, or signing out on a 401.
 triggers:
   - "login page"
-  - "sign in screen"
+  - "sign in"
   - "MFA page"
   - "one-time code"
+  - "AuthContext"
+  - "useAuth"
+  - "token store"
+  - "token refresh"
+  - "idle timeout"
+  - "sign out"
   - "session expired notice"
-  - "demo hint"
-  - "returnTo"
 paths:
   - "src/features/auth/AuthPages.tsx"
+  - "src/auth/**"
 depends_on:
-  - "web-auth-session"
   - "api-auth-sessions"
+  - "web-api-client"
   - "web-design-system"
   - "web-i18n-and-formatting"
-consumed_by: []
+consumed_by:
+  - "web-app-shell"
+  - "web-registration-wizard"
 data_entities:
   - "Session"
 last_verified_against_commit: 7489670e43b9b3498218e9a1559254ff6a581ea3
 last_feature_id: ""
-source_doc: docs/web-app-internal/13-feature-modules.md
+source_doc: docs/web-app-internal/09-authentication-and-authorization.md
 verification_signal: route-inventory-diff
 ---
 
-# Sign-in and MFA Pages
+# Sign-in, MFA and Browser Session
 
-> **Repo:** `web` ([repo summary](../../repos/electric-wealth-web/README.md)) · **Type:** `ui-feature` · **Source doc:** [`docs/web-app-internal/13-feature-modules.md`](../../../electric-wealth-web/docs/web-app-internal/13-feature-modules.md)
+> **Repo:** `web` ([repo summary](../../repos/electric-wealth-web/README.md)) · **Type:** `ui-feature` · **Source doc:** [`docs/web-app-internal/09-authentication-and-authorization.md`](../../../electric-wealth-web/docs/web-app-internal/09-authentication-and-authorization.md)
 
 ## 1. Overview
 
-`LoginPage` and `MfaPage` share the `/login` URL; which one renders depends on `useAuth().phase`. `AuthCard` provides the centred panel with a local-only language toggle. After MFA succeeds the router sends the user to the stored `returnTo` location.
+`AuthContext` holds the auth `phase` (`unauthenticated` → `mfa` → `authenticated`) and calls `/api/auth/token`, `/mfa/verify`, `/refresh` (every 10 minutes) and `/logout` itself, not through the query hooks. It signs the user out after 15 idle minutes, and on the `ew:unauthorized` event the API client fires on a 401. `startSession(tokens)` is the entry point the registration wizard uses.
 
-The pages call `AuthContext.login` / `verifyMfa` / `logout` from `web-auth-session`, which in turn call the API's `/api/auth/*` endpoints directly (not through the query hooks).
+`tokenStore` keeps the tokens in `sessionStorage`: a page refresh keeps you signed in, closing the tab signs you out. The API client reads the access token from it to attach to every request.
+
+`LoginPage` and `MfaPage` are the screens; both live at `/login` and which one renders depends on `phase`. Phase changes swap the route tables in `web-app-shell`; after MFA the user lands on the stored `returnTo` location.
 
 **Routes:** `/login`
 
-**Depends on:** [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md), [`api-auth-sessions`](../../components/electric-wealth-api-spring/api-auth-sessions.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
+**Depends on:** [`api-auth-sessions`](../../components/electric-wealth-api-spring/api-auth-sessions.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
+
+**Consumed by:** [`web-app-shell`](../../components/electric-wealth-web/web-app-shell.md), [`web-registration-wizard`](../../components/electric-wealth-web/web-registration-wizard.md)
 
 **Shared entities:** [`Session`](../../shared/entities/session.md)
 
@@ -49,12 +60,14 @@ The pages call `AuthContext.login` / `verifyMfa` / `logout` from `web-auth-sessi
 ## 2. Key Responsibilities
 
 - Collect credentials and the MFA code.
-- Show sign-out reasons (`idle`, `expired`) and demo hints.
-- Link to `/register`.
+- Hold the auth phase and sign-out reason.
+- Store tokens in sessionStorage and refresh them.
+- Sign out on idle, expiry or 401.
+- Show sign-out notices and demo hints.
 
 **Explicitly NOT in scope:**
 
-- Token storage, refresh and idle timeout — owned by [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md)
+- Server-side session validity — owned by [`api-auth-sessions`](../../components/electric-wealth-api-spring/api-auth-sessions.md)
 - Enrolment wizard — owned by [`web-registration-wizard`](../../components/electric-wealth-web/web-registration-wizard.md)
 
 ---
@@ -68,9 +81,9 @@ The pages call `AuthContext.login` / `verifyMfa` / `logout` from `web-auth-sessi
 | Data-entity schema change | API schema change in `api-auth-sessions` surfaces as type errors here | `npm run gen:api` then `npm run verify` |
 | Dependency upgrade | Whole SPA bundle | `npm run build` |
 
-**Upstream dependents to notify:** None modelled.
+**Upstream dependents to notify:** `web-app-shell`, `web-registration-wizard`
 
-**Downstream services to monitor post-change:** `web-auth-session`, `api-auth-sessions`, `web-design-system`, `web-i18n-and-formatting`
+**Downstream services to monitor post-change:** `api-auth-sessions`, `web-api-client`, `web-design-system`, `web-i18n-and-formatting`
 
 ---
 

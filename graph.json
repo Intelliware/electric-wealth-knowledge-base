@@ -225,12 +225,6 @@
       "doc": "components/electric-wealth-web/web-app-shell.md"
     },
     {
-      "id": "web-auth-session",
-      "repo": "web",
-      "type": "shared-library",
-      "doc": "components/electric-wealth-web/web-auth-session.md"
-    },
-    {
       "id": "web-api-client",
       "repo": "web",
       "type": "shared-library",
@@ -522,13 +516,13 @@
     },
     {
       "from": "web-sign-in-and-mfa",
-      "to": "web-auth-session",
-      "kind": "depends-on"
+      "to": "api-auth-sessions",
+      "kind": "calls"
     },
     {
       "from": "web-sign-in-and-mfa",
-      "to": "api-auth-sessions",
-      "kind": "calls"
+      "to": "web-api-client",
+      "kind": "depends-on"
     },
     {
       "from": "web-sign-in-and-mfa",
@@ -547,7 +541,7 @@
     },
     {
       "from": "web-registration-wizard",
-      "to": "web-auth-session",
+      "to": "web-sign-in-and-mfa",
       "kind": "depends-on"
     },
     {
@@ -777,7 +771,7 @@
     },
     {
       "from": "web-app-shell",
-      "to": "web-auth-session",
+      "to": "web-sign-in-and-mfa",
       "kind": "depends-on"
     },
     {
@@ -793,16 +787,6 @@
     {
       "from": "web-app-shell",
       "to": "web-i18n-and-formatting",
-      "kind": "depends-on"
-    },
-    {
-      "from": "web-auth-session",
-      "to": "web-api-client",
-      "kind": "depends-on"
-    },
-    {
-      "from": "web-auth-session",
-      "to": "api-auth-sessions",
       "kind": "depends-on"
     },
     {

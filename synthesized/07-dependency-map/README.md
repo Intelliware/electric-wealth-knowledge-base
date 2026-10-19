@@ -1,6 +1,6 @@
 # 07 — Dependency Map
 
-Canonical home: [`graph.json`](../../graph.json) (41 nodes, 112 edges) and the Mermaid diagram in [`ARCHITECTURE.md` § 5](../../ARCHITECTURE.md#5-dependency-graph).
+Canonical home: [`graph.json`](../../graph.json) (40 nodes, 110 edges) and the Mermaid diagram in [`ARCHITECTURE.md` § 5](../../ARCHITECTURE.md#5-dependency-graph).
 
 ```bash
 # What does a component depend on?

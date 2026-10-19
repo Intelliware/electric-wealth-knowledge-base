@@ -94,7 +94,7 @@ and any external integrations.
 | `api-market` | `api-spring` | `api-feature` | Use when a client reads quotes, security detail, price history, search results, news, the weekly roundup or thematic baskets, or adds or removes watchlist symbols through /api/market. | [doc](components/electric-wealth-api-spring/api-market.md) |
 | `api-request-pipeline` | `api-spring` | `framework` | Use when a change touches how every API request is authenticated, traced, rate-limited or turned into the standard error envelope — the bearer-token filter, Spring Security config, trace and rate-limit filters, or GlobalExceptionHandler. | [doc](components/electric-wealth-api-spring/api-request-pipeline.md) |
 | `api-contract-and-data-access` | `api-spring` | `framework` | Use when a change touches the committed openapi.json contract, OpenAPI generation conventions, shared DTO/enum types, JSON serialisation settings, application configuration, or the JdbcClient row-mapping helpers used by every repository. | [doc](components/electric-wealth-api-spring/api-contract-and-data-access.md) |
-| `web-sign-in-and-mfa` | `web` | `ui-feature` | Use when the user signs in on /login with email and password, enters the six-digit MFA code, or sees the idle / expired sign-out notice. | [doc](components/electric-wealth-web/web-sign-in-and-mfa.md) |
+| `web-sign-in-and-mfa` | `web` | `ui-feature` | Use when the user signs in on /login with email and password and the MFA code, or a change touches the browser session: the signed-out / MFA / signed-in phases, token storage in sessionStorage, the 10-minute token refresh, the 15-minute idle sign-out, or signing out on a 401. | [doc](components/electric-wealth-web/web-sign-in-and-mfa.md) |
 | `web-registration-wizard` | `web` | `ui-feature` | Use when a branch client without online access enrols through the seven-step /register wizard (login details, identity, security questions, two-step method, trusted contact, consent, onboarding tour). | [doc](components/electric-wealth-web/web-registration-wizard.md) |
 | `web-dashboard` | `web` | `ui-feature` | Use when the signed-in home page (/) shows the portfolio total, day change, action-required alerts, allocation bar, goal progress and quick links — including mapping API deep links to web routes. | [doc](components/electric-wealth-web/web-dashboard.md) |
 | `web-accounts` | `web` | `ui-feature` | Use when the user views the accounts list, an account's detail (performance vs benchmark, holdings, transactions, nickname) or opens a new account at /accounts, /accounts/:id or /accounts/new. | [doc](components/electric-wealth-web/web-accounts.md) |
@@ -107,7 +107,6 @@ and any external integrations.
 | `web-profile` | `web` | `ui-feature` | Use when the user views personal details, edits the mailing address, or sees the trusted contact on /profile. | [doc](components/electric-wealth-web/web-profile.md) |
 | `web-settings` | `web` | `ui-feature` | Use when the user changes theme, language, notification channels, document delivery or default meeting type on /settings. | [doc](components/electric-wealth-web/web-settings.md) |
 | `web-app-shell` | `web` | `ui-feature` | Use when a change touches the signed-in / signed-out route tables, the top navigation and user menu, the 404 page, return-to-origin redirects, or how the SPA boots and proxies /api in development. | [doc](components/electric-wealth-web/web-app-shell.md) |
-| `web-auth-session` | `web` | `shared-library` | Use when a change touches the browser-side session — AuthContext phases, token storage, the 10-minute refresh timer, idle sign-out, or the global 401 handling that signs the user out. | [doc](components/electric-wealth-web/web-auth-session.md) |
 | `web-api-client` | `web` | `shared-library` | Use when a change touches how the web app calls the API — the openapi-fetch client, generated schema.d.ts types, header middleware, ApiError unwrapping, or the TanStack Query hooks and their cache keys. | [doc](components/electric-wealth-web/web-api-client.md) |
 | `web-design-system` | `web` | `framework` | Use when a change touches shared UI primitives (cards, buttons, empty/error states, progress bars, pagination), the SVG charts, CSS theme variables, or dark-mode styling. | [doc](components/electric-wealth-web/web-design-system.md) |
 | `web-i18n-and-formatting` | `web` | `framework` | Use when a change touches translations (en-CA / fr-CA resource files), locale switching, or money, date and percentage formatting helpers. | [doc](components/electric-wealth-web/web-i18n-and-formatting.md) |
@@ -122,8 +121,8 @@ Inverted lookup: **capability → `component_id`s that implement it**. Hit this 
 
 | Capability | Component IDs | Owning Repos | Notes |
 |---|---|---|---|
-| sign in with password and MFA | `web-sign-in-and-mfa`, `web-auth-session`, `api-auth-sessions`, `api-request-pipeline`, `db-identity-and-auth` | `api-spring`, `db`, `web` | Demo MFA code `123456`. |
-| refresh or sign out a session | `web-auth-session`, `api-auth-sessions` | `api-spring`, `web` | Refresh every 10 min; idle sign-out after 15 min. |
+| sign in with password and MFA | `web-sign-in-and-mfa`, `api-auth-sessions`, `api-request-pipeline`, `db-identity-and-auth` | `api-spring`, `db`, `web` | Demo MFA code `123456`. |
+| refresh or sign out a session | `web-sign-in-and-mfa`, `api-auth-sessions` | `api-spring`, `web` | Refresh every 10 min; idle sign-out after 15 min. |
 | enrol a branch client for online access | `web-registration-wizard`, `api-registration`, `db-online-enrolment` | `api-spring`, `db`, `web` | Completion provisions profile, preferences, snapshot, welcome notification, quick links. |
 | show the portfolio dashboard | `web-dashboard`, `api-dashboard`, `db-goals-and-dashboard` | `api-spring`, `db`, `web` | Total value computed live from visible account balances. |
 | list and view investment accounts | `web-accounts`, `api-accounts`, `db-accounts-and-investments` | `api-spring`, `db`, `web` | Web fetches page 1 only. |
@@ -161,7 +160,7 @@ Inverted lookup: **capability → `component_id`s that implement it**. Hit this 
 
 ## 5. Dependency Graph
 
-Rendered from [`graph.json`](graph.json) (41 nodes, 112 edges). Solid arrows =
+Rendered from [`graph.json`](graph.json) (40 nodes, 110 edges). Solid arrows =
 `calls`, dotted = `depends-on`, thick = `derives-from`, dashed = `consumes` (the last two have no edges today).
 
 ```mermaid
@@ -196,7 +195,6 @@ flowchart LR
     web_profile["web-profile"]
     web_settings["web-settings"]
     web_app_shell["web-app-shell"]
-    web_auth_session["web-auth-session"]
     web_api_client["web-api-client"]
     web_design_system["web-design-system"]
     web_i18n_and_formatting["web-i18n-and-formatting"]
@@ -267,12 +265,12 @@ flowchart LR
   api_market -.->|depends-on| api_contract_and_data_access
   api_request_pipeline -.->|depends-on| api_auth_sessions
   api_request_pipeline -.->|depends-on| api_contract_and_data_access
-  web_sign_in_and_mfa -.->|depends-on| web_auth_session
   web_sign_in_and_mfa -->|calls| api_auth_sessions
+  web_sign_in_and_mfa -.->|depends-on| web_api_client
   web_sign_in_and_mfa -.->|depends-on| web_design_system
   web_sign_in_and_mfa -.->|depends-on| web_i18n_and_formatting
   web_registration_wizard -->|calls| api_registration
-  web_registration_wizard -.->|depends-on| web_auth_session
+  web_registration_wizard -.->|depends-on| web_sign_in_and_mfa
   web_registration_wizard -.->|depends-on| web_api_client
   web_registration_wizard -.->|depends-on| web_design_system
   web_registration_wizard -.->|depends-on| web_i18n_and_formatting
@@ -318,12 +316,10 @@ flowchart LR
   web_settings -.->|depends-on| web_api_client
   web_settings -.->|depends-on| web_design_system
   web_settings -.->|depends-on| web_i18n_and_formatting
-  web_app_shell -.->|depends-on| web_auth_session
+  web_app_shell -.->|depends-on| web_sign_in_and_mfa
   web_app_shell -.->|depends-on| web_api_client
   web_app_shell -.->|depends-on| web_design_system
   web_app_shell -.->|depends-on| web_i18n_and_formatting
-  web_auth_session -.->|depends-on| web_api_client
-  web_auth_session -.->|depends-on| api_auth_sessions
   web_api_client -.->|depends-on| api_contract_and_data_access
 ```
 

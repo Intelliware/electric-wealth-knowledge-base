@@ -26,7 +26,6 @@ depends_on:
 consumed_by:
   - "api-registration"
   - "api-request-pipeline"
-  - "web-auth-session"
   - "web-sign-in-and-mfa"
 data_entities:
   - "User"
@@ -51,7 +50,7 @@ Issues and manages opaque bearer sessions (`mock-at-…` / `mock-rt-…`) stored
 
 **Depends on:** [`db-identity-and-auth`](../../components/electric-wealth-db/db-identity-and-auth.md), [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md), [`api-contract-and-data-access`](../../components/electric-wealth-api-spring/api-contract-and-data-access.md)
 
-**Consumed by:** [`api-registration`](../../components/electric-wealth-api-spring/api-registration.md), [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md), [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md), [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md)
+**Consumed by:** [`api-registration`](../../components/electric-wealth-api-spring/api-registration.md), [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md), [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md)
 
 **Shared entities:** [`User`](../../shared/entities/user.md), [`Session`](../../shared/entities/session.md)
 
@@ -75,12 +74,12 @@ Issues and manages opaque bearer sessions (`mock-at-…` / `mock-rt-…`) stored
 
 | Change Type | Likely Blast Radius | Verification Signal |
 |---|---|---|
-| HTTP operations (4) in `openapi.json`, tag `Auth` | Web callers `web-auth-session`, `web-sign-in-and-mfa`; web `src/api/schema.d.ts` must be regenerated; Node API parity | `openapi-diff`: `OpenApiSpecTest`, `ContractParityTest`, then `npm run verify` in `electric-wealth-web` |
+| HTTP operations (4) in `openapi.json`, tag `Auth` | Web callers `web-sign-in-and-mfa`; web `src/api/schema.d.ts` must be regenerated; Node API parity | `openapi-diff`: `OpenApiSpecTest`, `ContractParityTest`, then `npm run verify` in `electric-wealth-web` |
 | Internal refactor (no interface change) | This component's controller / repository only | `./mvnw test -Dtest=AuthApiTest` |
 | Data-entity schema change | Schema owner(s) `db-identity-and-auth` and every API feature reading the same tables | `schema-diff` on `electric-wealth-db` + full `./mvnw test` |
 | Dependency upgrade | Whole API (single Maven module) | `./mvnw verify` incl. `OpenApiSpecTest` |
 
-**Upstream dependents to notify:** `api-registration`, `api-request-pipeline`, `web-auth-session`, `web-sign-in-and-mfa`
+**Upstream dependents to notify:** `api-registration`, `api-request-pipeline`, `web-sign-in-and-mfa`
 
 **Downstream services to monitor post-change:** `db-identity-and-auth`, `api-request-pipeline`, `api-contract-and-data-access`
 

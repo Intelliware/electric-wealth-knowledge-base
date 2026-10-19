@@ -24,7 +24,7 @@ paths:
   - "tsconfig*.json"
   - "package.json"
 depends_on:
-  - "web-auth-session"
+  - "web-sign-in-and-mfa"
   - "web-api-client"
   - "web-design-system"
   - "web-i18n-and-formatting"
@@ -49,7 +49,7 @@ verification_signal: route-inventory-diff
 
 **Routes:** `/*`
 
-**Depends on:** [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
+**Depends on:** [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`web-design-system`](../../components/electric-wealth-web/web-design-system.md), [`web-i18n-and-formatting`](../../components/electric-wealth-web/web-i18n-and-formatting.md)
 
 **Shared entities:** [`UserPreferences`](../../shared/entities/user-preferences.md)
 
@@ -65,7 +65,7 @@ verification_signal: route-inventory-diff
 **Explicitly NOT in scope:**
 
 - Individual pages — owned by [`web-dashboard`](../../components/electric-wealth-web/web-dashboard.md)
-- Auth phase transitions — owned by [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md)
+- Auth phase transitions — owned by [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md)
 
 ---
 
@@ -80,7 +80,7 @@ verification_signal: route-inventory-diff
 
 **Upstream dependents to notify:** None modelled.
 
-**Downstream services to monitor post-change:** `web-auth-session`, `web-api-client`, `web-design-system`, `web-i18n-and-formatting`
+**Downstream services to monitor post-change:** `web-sign-in-and-mfa`, `web-api-client`, `web-design-system`, `web-i18n-and-formatting`
 
 ---
 

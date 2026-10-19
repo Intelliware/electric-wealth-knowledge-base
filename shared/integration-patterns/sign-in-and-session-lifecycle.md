@@ -2,12 +2,12 @@
 
 > **Source:** [`source-docs/electric-wealth-api-spring/api-consumer/02-authentication.md`](../../source-docs/electric-wealth-api-spring/api-consumer/02-authentication.md) (Part B)
 
-**Participating components:** [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md), [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`api-auth-sessions`](../../components/electric-wealth-api-spring/api-auth-sessions.md), [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md), [`db-identity-and-auth`](../../components/electric-wealth-db/db-identity-and-auth.md)
+**Participating components:** [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md), [`web-api-client`](../../components/electric-wealth-web/web-api-client.md), [`api-auth-sessions`](../../components/electric-wealth-api-spring/api-auth-sessions.md), [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md), [`db-identity-and-auth`](../../components/electric-wealth-db/db-identity-and-auth.md)
 
 ```mermaid
 sequenceDiagram
-    participant UI as web-sign-in-and-mfa
-    participant Auth as web-auth-session
+    participant UI as LoginPage / MfaPage
+    participant Auth as AuthContext (web-sign-in-and-mfa)
     participant API as api-auth-sessions
     participant Pipe as api-request-pipeline
     participant DB as db-identity-and-auth

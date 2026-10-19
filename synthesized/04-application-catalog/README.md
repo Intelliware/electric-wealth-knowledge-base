@@ -4,7 +4,7 @@ Filtered view of the [Component Catalog](../../ARCHITECTURE.md#3-component-catal
 
 | Component ID | Repo | Type | Description | Doc |
 |---|---|---|---|---|
-| `web-sign-in-and-mfa` | `web` | `ui-feature` | Use when the user signs in on /login with email and password, enters the six-digit MFA code, or sees the idle / expired sign-out notice. | [doc](../../components/electric-wealth-web/web-sign-in-and-mfa.md) |
+| `web-sign-in-and-mfa` | `web` | `ui-feature` | Use when the user signs in on /login with email and password and the MFA code, or a change touches the browser session: the signed-out / MFA / signed-in phases, token storage in sessionStorage, the 10-minute token refresh, the 15-minute idle sign-out, or signing out on a 401. | [doc](../../components/electric-wealth-web/web-sign-in-and-mfa.md) |
 | `web-registration-wizard` | `web` | `ui-feature` | Use when a branch client without online access enrols through the seven-step /register wizard (login details, identity, security questions, two-step method, trusted contact, consent, onboarding tour). | [doc](../../components/electric-wealth-web/web-registration-wizard.md) |
 | `web-dashboard` | `web` | `ui-feature` | Use when the signed-in home page (/) shows the portfolio total, day change, action-required alerts, allocation bar, goal progress and quick links — including mapping API deep links to web routes. | [doc](../../components/electric-wealth-web/web-dashboard.md) |
 | `web-accounts` | `web` | `ui-feature` | Use when the user views the accounts list, an account's detail (performance vs benchmark, holdings, transactions, nickname) or opens a new account at /accounts, /accounts/:id or /accounts/new. | [doc](../../components/electric-wealth-web/web-accounts.md) |

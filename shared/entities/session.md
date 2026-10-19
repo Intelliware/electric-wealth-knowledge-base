@@ -84,7 +84,6 @@ stateDiagram-v2
 |---|---|---|---|
 | [`api-registration`](../../components/electric-wealth-api-spring/api-registration.md) | `api-spring` | `direct-read` | Reads or writes the same tables through its own repository SQL (shared SQLite file, no service boundary) |
 | [`api-request-pipeline`](../../components/electric-wealth-api-spring/api-request-pipeline.md) | `api-spring` | `direct-read` | Reads or writes the same tables through its own repository SQL (shared SQLite file, no service boundary) |
-| [`web-auth-session`](../../components/electric-wealth-web/web-auth-session.md) | `web` | `synchronous-read` | Calls `api-auth-sessions` over HTTP (via `web-api-client`) to render it |
 | [`web-sign-in-and-mfa`](../../components/electric-wealth-web/web-sign-in-and-mfa.md) | `web` | `synchronous-read` | Calls `api-auth-sessions` over HTTP (via `web-api-client`) to render it |
 
 **Cross-references:** components with `Session` in `data_entities` — see the Component Catalog in [`ARCHITECTURE.md`](../../ARCHITECTURE.md#3-component-catalog).
