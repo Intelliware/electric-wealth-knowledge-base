@@ -1,0 +1,814 @@
+{
+  "_comment": "Derived from component frontmatter (depends_on) by build-knowledge-base. Do not hand-edit; consumed_by is the inverse view and is not written as edges.",
+  "_schema_version": "1.0",
+  "nodes": [
+    {
+      "id": "db-identity-and-auth",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-identity-and-auth.md"
+    },
+    {
+      "id": "db-accounts-and-investments",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-accounts-and-investments.md"
+    },
+    {
+      "id": "db-documents",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-documents.md"
+    },
+    {
+      "id": "db-goals-and-dashboard",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-goals-and-dashboard.md"
+    },
+    {
+      "id": "db-notifications",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-notifications.md"
+    },
+    {
+      "id": "db-learning-centre",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-learning-centre.md"
+    },
+    {
+      "id": "db-advisor",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-advisor.md"
+    },
+    {
+      "id": "db-market-data",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-market-data.md"
+    },
+    {
+      "id": "db-online-enrolment",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-online-enrolment.md"
+    },
+    {
+      "id": "db-migration-and-seed-tooling",
+      "repo": "db",
+      "type": "database-schema",
+      "doc": "components/electric-wealth-db/db-migration-and-seed-tooling.md"
+    },
+    {
+      "id": "api-health",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-health.md"
+    },
+    {
+      "id": "api-auth-sessions",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-auth-sessions.md"
+    },
+    {
+      "id": "api-registration",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-registration.md"
+    },
+    {
+      "id": "api-dashboard",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-dashboard.md"
+    },
+    {
+      "id": "api-accounts",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-accounts.md"
+    },
+    {
+      "id": "api-goals",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-goals.md"
+    },
+    {
+      "id": "api-documents",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-documents.md"
+    },
+    {
+      "id": "api-profile-and-preferences",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-profile-and-preferences.md"
+    },
+    {
+      "id": "api-notifications",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-notifications.md"
+    },
+    {
+      "id": "api-advisor",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-advisor.md"
+    },
+    {
+      "id": "api-education",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-education.md"
+    },
+    {
+      "id": "api-market",
+      "repo": "api-spring",
+      "type": "api-feature",
+      "doc": "components/electric-wealth-api-spring/api-market.md"
+    },
+    {
+      "id": "api-request-pipeline",
+      "repo": "api-spring",
+      "type": "framework",
+      "doc": "components/electric-wealth-api-spring/api-request-pipeline.md"
+    },
+    {
+      "id": "api-contract-and-data-access",
+      "repo": "api-spring",
+      "type": "framework",
+      "doc": "components/electric-wealth-api-spring/api-contract-and-data-access.md"
+    },
+    {
+      "id": "web-sign-in-and-mfa",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-sign-in-and-mfa.md"
+    },
+    {
+      "id": "web-registration-wizard",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-registration-wizard.md"
+    },
+    {
+      "id": "web-dashboard",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-dashboard.md"
+    },
+    {
+      "id": "web-accounts",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-accounts.md"
+    },
+    {
+      "id": "web-documents",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-documents.md"
+    },
+    {
+      "id": "web-goals",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-goals.md"
+    },
+    {
+      "id": "web-market",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-market.md"
+    },
+    {
+      "id": "web-education",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-education.md"
+    },
+    {
+      "id": "web-advisor",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-advisor.md"
+    },
+    {
+      "id": "web-notifications",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-notifications.md"
+    },
+    {
+      "id": "web-profile",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-profile.md"
+    },
+    {
+      "id": "web-settings",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-settings.md"
+    },
+    {
+      "id": "web-app-shell",
+      "repo": "web",
+      "type": "ui-feature",
+      "doc": "components/electric-wealth-web/web-app-shell.md"
+    },
+    {
+      "id": "web-auth-session",
+      "repo": "web",
+      "type": "shared-library",
+      "doc": "components/electric-wealth-web/web-auth-session.md"
+    },
+    {
+      "id": "web-api-client",
+      "repo": "web",
+      "type": "shared-library",
+      "doc": "components/electric-wealth-web/web-api-client.md"
+    },
+    {
+      "id": "web-design-system",
+      "repo": "web",
+      "type": "framework",
+      "doc": "components/electric-wealth-web/web-design-system.md"
+    },
+    {
+      "id": "web-i18n-and-formatting",
+      "repo": "web",
+      "type": "framework",
+      "doc": "components/electric-wealth-web/web-i18n-and-formatting.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "db-identity-and-auth",
+      "to": "db-advisor",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-accounts-and-investments",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-documents",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-goals-and-dashboard",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-notifications",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-learning-centre",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-advisor",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-market-data",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-online-enrolment",
+      "to": "db-identity-and-auth",
+      "kind": "depends-on"
+    },
+    {
+      "from": "db-online-enrolment",
+      "to": "db-advisor",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-health",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-health",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-auth-sessions",
+      "to": "db-identity-and-auth",
+      "kind": "calls"
+    },
+    {
+      "from": "api-auth-sessions",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-auth-sessions",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-registration",
+      "to": "api-auth-sessions",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-registration",
+      "to": "db-online-enrolment",
+      "kind": "calls"
+    },
+    {
+      "from": "api-registration",
+      "to": "db-identity-and-auth",
+      "kind": "calls"
+    },
+    {
+      "from": "api-registration",
+      "to": "db-goals-and-dashboard",
+      "kind": "calls"
+    },
+    {
+      "from": "api-registration",
+      "to": "db-notifications",
+      "kind": "calls"
+    },
+    {
+      "from": "api-registration",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-registration",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-dashboard",
+      "to": "db-goals-and-dashboard",
+      "kind": "calls"
+    },
+    {
+      "from": "api-dashboard",
+      "to": "db-accounts-and-investments",
+      "kind": "calls"
+    },
+    {
+      "from": "api-dashboard",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-dashboard",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-accounts",
+      "to": "db-accounts-and-investments",
+      "kind": "calls"
+    },
+    {
+      "from": "api-accounts",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-accounts",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-goals",
+      "to": "db-goals-and-dashboard",
+      "kind": "calls"
+    },
+    {
+      "from": "api-goals",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-goals",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-documents",
+      "to": "db-documents",
+      "kind": "calls"
+    },
+    {
+      "from": "api-documents",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-documents",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-profile-and-preferences",
+      "to": "db-identity-and-auth",
+      "kind": "calls"
+    },
+    {
+      "from": "api-profile-and-preferences",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-profile-and-preferences",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-notifications",
+      "to": "db-notifications",
+      "kind": "calls"
+    },
+    {
+      "from": "api-notifications",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-notifications",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-advisor",
+      "to": "db-advisor",
+      "kind": "calls"
+    },
+    {
+      "from": "api-advisor",
+      "to": "db-identity-and-auth",
+      "kind": "calls"
+    },
+    {
+      "from": "api-advisor",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-advisor",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-education",
+      "to": "db-learning-centre",
+      "kind": "calls"
+    },
+    {
+      "from": "api-education",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-education",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-market",
+      "to": "db-market-data",
+      "kind": "calls"
+    },
+    {
+      "from": "api-market",
+      "to": "db-accounts-and-investments",
+      "kind": "calls"
+    },
+    {
+      "from": "api-market",
+      "to": "api-request-pipeline",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-market",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-request-pipeline",
+      "to": "api-auth-sessions",
+      "kind": "depends-on"
+    },
+    {
+      "from": "api-request-pipeline",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-sign-in-and-mfa",
+      "to": "web-auth-session",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-sign-in-and-mfa",
+      "to": "api-auth-sessions",
+      "kind": "calls"
+    },
+    {
+      "from": "web-sign-in-and-mfa",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-sign-in-and-mfa",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-registration-wizard",
+      "to": "api-registration",
+      "kind": "calls"
+    },
+    {
+      "from": "web-registration-wizard",
+      "to": "web-auth-session",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-registration-wizard",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-registration-wizard",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-registration-wizard",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-dashboard",
+      "to": "api-dashboard",
+      "kind": "calls"
+    },
+    {
+      "from": "web-dashboard",
+      "to": "api-profile-and-preferences",
+      "kind": "calls"
+    },
+    {
+      "from": "web-dashboard",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-dashboard",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-dashboard",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-accounts",
+      "to": "api-accounts",
+      "kind": "calls"
+    },
+    {
+      "from": "web-accounts",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-accounts",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-accounts",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-documents",
+      "to": "api-documents",
+      "kind": "calls"
+    },
+    {
+      "from": "web-documents",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-documents",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-documents",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-goals",
+      "to": "api-goals",
+      "kind": "calls"
+    },
+    {
+      "from": "web-goals",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-goals",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-goals",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-market",
+      "to": "api-market",
+      "kind": "calls"
+    },
+    {
+      "from": "web-market",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-market",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-market",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-education",
+      "to": "api-education",
+      "kind": "calls"
+    },
+    {
+      "from": "web-education",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-education",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-education",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-advisor",
+      "to": "api-advisor",
+      "kind": "calls"
+    },
+    {
+      "from": "web-advisor",
+      "to": "api-profile-and-preferences",
+      "kind": "calls"
+    },
+    {
+      "from": "web-advisor",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-advisor",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-advisor",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-notifications",
+      "to": "api-notifications",
+      "kind": "calls"
+    },
+    {
+      "from": "web-notifications",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-notifications",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-notifications",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-profile",
+      "to": "api-profile-and-preferences",
+      "kind": "calls"
+    },
+    {
+      "from": "web-profile",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-profile",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-profile",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-settings",
+      "to": "api-profile-and-preferences",
+      "kind": "calls"
+    },
+    {
+      "from": "web-settings",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-settings",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-settings",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-app-shell",
+      "to": "web-auth-session",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-app-shell",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-app-shell",
+      "to": "web-design-system",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-app-shell",
+      "to": "web-i18n-and-formatting",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-auth-session",
+      "to": "web-api-client",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-auth-session",
+      "to": "api-auth-sessions",
+      "kind": "depends-on"
+    },
+    {
+      "from": "web-api-client",
+      "to": "api-contract-and-data-access",
+      "kind": "depends-on"
+    }
+  ]
+}
