@@ -7,7 +7,7 @@ It covers these repos:
 
 - [`electric-wealth-workspace`](https://dev.azure.com/IntelliwareDev/AI_Knowledge_Repo/_git/electric-wealth-workspace): project configuration and tooling
 - [`electric-wealth-db`](https://dev.azure.com/IntelliwareDev/AI_Knowledge_Repo/_git/electric-wealth-db): database
-- [`electric-wealth-api-spring`](https://dev.azure.com/IntelliwareDev/AI_Knowledge_Repo/_git/electric-wealth-api-spring): REST API
+- [`electric-wealth-api`](https://github.com/adam-mccormick-em/electric-wealth-api): REST API
 - [`electric-wealth-web`](https://dev.azure.com/IntelliwareDev/AI_Knowledge_Repo/_git/electric-wealth-web): web app
 
 ## Nothing is committed to `main`
